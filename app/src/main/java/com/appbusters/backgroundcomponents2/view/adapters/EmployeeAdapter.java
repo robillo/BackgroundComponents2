@@ -1,5 +1,7 @@
 package com.appbusters.backgroundcomponents2.view.adapters;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +19,12 @@ public class EmployeeAdapter extends BaseAdapter{
     private LayoutInflater inflater;
     private List<EmployeeData> employees = new ArrayList<>();
 
-    public EmployeeAdapter(LayoutInflater inflater, List<EmployeeData> employees) {
-        this.inflater = inflater;
+    public EmployeeAdapter(Context context, List<EmployeeData> employees) {
+        this.inflater = LayoutInflater.from(context);
         this.employees = employees;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         EmployeeData data = (EmployeeData) getItem(position);
